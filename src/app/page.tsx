@@ -1,17 +1,53 @@
-import { Button } from "@/components/ui/button";
-import Headline from "@/components/ui/headline";
-import Text from "@/components/ui/text";
+"use client";
 import Container from "@/components/ui/container";
+import Link from "next/link";
+import { Button } from "@/components/ui/button";
+import { useUser } from "@auth0/nextjs-auth0/client";
+import { redirect } from 'next/navigation'
 
 export default function Home() {
+    const { user } = useUser();
+
+    const handleClick = async () => {
+        try {
+            const res = await fetch('/api/sendUserInfoToBe', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify(user?.email),
+            });
+
+            if (!res.ok) {
+                throw new Error('Network response was not ok');
+            }
+
+        } catch (error) {
+            console.error('Error triggering function:', error);
+        }
+    };
+
     return (
-        <Container className="mt-28 flex w-full max-w-5xl justify-center">
-            <Headline as="h1">Next.js Starter Template</Headline>
-            <Text>
-                This Next.js starter template comes pre-configured with ESLint, Prettier, Tailwind, Shadcn, TypeScript
-                and a variety of basic components.
-            </Text>
-            <Button>Click me</Button>
+        <Container>
+            {user ? (
+                <>
+                    <p>Hello, {user.name}!</p>
+                    <Link href="/api/auth/logout">
+                        <Button>
+                            Logout
+                        </Button>
+                    </Link>
+                    <Button onClick={handleClick}>
+                        Send User Data To Be
+                    </Button>
+                </>
+            ) : (
+                <Link href="/api/auth/login">
+                    <Button>
+                        Login
+                    </Button>
+                </Link>
+            )}
         </Container>
     );
 }
