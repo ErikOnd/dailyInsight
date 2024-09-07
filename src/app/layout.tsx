@@ -3,6 +3,7 @@ import { Inter as FontSans } from "next/font/google";
 import { cn } from "@/lib/utils";
 import React from "react";
 import { UserProvider } from "@auth0/nextjs-auth0/client";
+import Navbar from "@/components/Navbar";
 
 const fontSans = FontSans({
     subsets: ["latin"],
@@ -19,6 +20,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
             </head>
             <UserProvider>
                 <body className={cn("min-h-screen bg-background font-sans antialiased", fontSans.variable)}>
+                    <Navbar />
                     {children}
                 </body>
             </UserProvider>
