@@ -6,13 +6,7 @@ type ContainerProps = {
 
 const Container = (props: ContainerProps) => {
     const { children } = props;
-    return (
-        <div className="mx-auto flex justify-center px-4 pt-28 sm:px-6 lg:px-8">
-            <div className="flex max-w-5xl flex-col items-center justify-center space-y-4 sm:space-y-6 lg:space-y-8">
-                {children}
-            </div>
-        </div>
-    );
+    return <div className="mx-auto flex max-w-7xl px-4 sm:px-6 lg:px-8">{children}</div>;
 };
 
 export default Container;

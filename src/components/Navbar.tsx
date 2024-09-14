@@ -7,7 +7,7 @@ import { useUser } from "@auth0/nextjs-auth0/client";
 const Navbar = () => {
     const { user } = useUser();
     return (
-        <div className="mx-auto flex max-w-5xl items-center justify-center px-4 py-16 align-middle sm:px-6 lg:px-8">
+        <div className="mx-auto flex max-w-7xl items-center justify-center px-4 py-12 align-middle sm:px-6 lg:px-8">
             <div className="mr-28 text-3xl font-bold">Logo</div>
             <div className="flex gap-10 font-bold">
                 <Link href="/home">Home</Link>

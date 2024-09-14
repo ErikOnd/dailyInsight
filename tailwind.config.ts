@@ -67,10 +67,18 @@ const config = {
                     from: { height: "var(--radix-accordion-content-height)" },
                     to: { height: "0" },
                 },
+                "random-movement": {
+                    "0%": { transform: "translateX(0) translateY(0)" },
+                    "25%": { transform: "translateX(10px) translateY(5px)" },
+                    "50%": { transform: "translateX(-8px) translateY(12px)" },
+                    "75%": { transform: "translateX(6px) translateY(-6px)" },
+                    "100%": { transform: "translateX(0) translateY(0)" },
+                },
             },
             animation: {
                 "accordion-down": "accordion-down 0.2s ease-out",
                 "accordion-up": "accordion-up 0.2s ease-out",
+                "random-shift": "random-movement 10s ease-in-out infinite",
             },
         },
     },
