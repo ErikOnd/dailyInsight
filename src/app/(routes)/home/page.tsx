@@ -18,7 +18,7 @@ const Home = () => {
     };
     return (
         <Container>
-            <div className="mt-28 flex max-w-2xl flex-col gap-8">
+            <div className="mt-16 flex max-w-2xl flex-col gap-8">
                 <Text
                     className="font-bold uppercase"
                     variant="secondary"
@@ -32,8 +32,10 @@ const Home = () => {
                     <Button variant="outline">See how it works</Button>
                 </div>
             </div>
-            <div className="flex animate-random-shift items-center">
-                <Lottie options={defaultOptions} />
+            <div className="mx-auto flex hidden w-full animate-random-shift items-center justify-center md:flex">
+                <div className="w-full">
+                    <Lottie options={defaultOptions} />
+                </div>
             </div>
         </Container>
     );
