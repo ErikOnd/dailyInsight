@@ -21,14 +21,9 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
             </head>
             <UserProvider>
                 <body className={cn("min-h-screen bg-background font-sans antialiased", fontSans.variable)}>
-                    <Navbar />
                     {children}
-                    <hr className="mx-8 mt-48 border-gray-300" />
-                    <Footer />
                 </body>
             </UserProvider>
         </html>
     );
 }
-
-//todo: create a grid layout for the homepage and remove the styling from here
