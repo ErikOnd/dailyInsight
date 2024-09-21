@@ -3,6 +3,7 @@ import React from "react";
 import Link from "next/link";
 import { Button } from "@/components/ui/button";
 import { useUser } from "@auth0/nextjs-auth0/client";
+import LanguageSwitcher from "@/components/ui/LanguageSwitcher";
 
 const Navbar = () => {
     const { user } = useUser();
@@ -15,7 +16,8 @@ const Navbar = () => {
                 <Link href="/aboutUs">About us</Link>
                 <Link href="/contact">Contact</Link>
             </div>
-            <div className="ml-auto">
+            <div className="ml-auto flex gap-5">
+                <LanguageSwitcher />
                 {user ? (
                     <Link href="/api/auth/logout">
                         <Button variant="ghost">Logout</Button>
