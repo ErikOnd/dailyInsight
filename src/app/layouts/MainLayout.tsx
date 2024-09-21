@@ -8,13 +8,13 @@ type LayoutProps = {
 };
 
 const MainLayout = ({ children }: LayoutProps) => {
-    return (
-        <Container>
-            <Navbar />
-            <main>{children}</main>
-            <Footer />
-        </Container>
-    );
+	return (
+		<Container>
+			<Navbar />
+			<main>{children}</main>
+			<Footer />
+		</Container>
+	);
 };
 
 export default MainLayout;
