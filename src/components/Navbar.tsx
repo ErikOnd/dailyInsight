@@ -10,7 +10,7 @@ const Navbar = () => {
 	return (
 		<div className="flex items-center justify-center py-12 align-middle">
 			<div className="mr-28 text-3xl font-bold">Logo</div>
-			<div className="flex gap-10 font-bold">
+			<div className="hidden gap-10 font-bold lg:flex">
 				<Link href="/home">Home</Link>
 				<Link href="/pricing">Pricing</Link>
 				<Link href="/aboutUs">About us</Link>

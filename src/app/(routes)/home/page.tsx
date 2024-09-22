@@ -35,8 +35,8 @@ const Home = () => {
 						<Button variant="outline"> {t("seeHowItWorks")}</Button>
 					</div>
 				</div>
-				<div className="h-full w-full max-w-fit self-center">
-					<Lottie options={defaultOptions} />
+				<div className="hidden h-full w-full max-w-fit self-center lg:block">
+					<Lottie options={defaultOptions}/>
 				</div>
 			</div>
 		</MainLayout>
