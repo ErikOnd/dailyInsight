@@ -20,8 +20,8 @@ const Home = () => {
 	const t = useTranslations("homepage");
 	return (
 		<MainLayout>
-			<div className="flex justify-between">
-				<div className="flex max-w-2xl flex-col gap-8">
+			<div className="mb-12 flex flex-row justify-between">
+				<div className="max-w-1/2 flex flex-col gap-8">
 					<Text
 						className="font-bold uppercase"
 						variant="secondary"
@@ -30,13 +30,13 @@ const Home = () => {
 					</Text>
 					<Headline as="h1"> {t("header")}</Headline>
 					<Text> {t("text")}</Text>
-					<div className="flex gap-4">
+					<div className="flex flex-wrap gap-4">
 						<Button> {t("tryForFree")}</Button>
 						<Button variant="outline"> {t("seeHowItWorks")}</Button>
 					</div>
 				</div>
-				<div className="hidden h-full w-full max-w-fit self-center lg:block">
-					<Lottie options={defaultOptions}/>
+				<div className="mt-16 h-full w-full max-w-fit animate-random-shift self-start">
+					<Lottie options={defaultOptions} />
 				</div>
 			</div>
 		</MainLayout>

@@ -4,7 +4,8 @@ import Link from "next/link";
 
 const Footer = () => {
 	return (
-		<div className="flex w-full flex-wrap justify-between gap-10 py-4">
+		<div className="relative flex w-full flex-wrap justify-between gap-10 py-8">
+			<hr className="absolute left-1/2 top-0 w-[100vw] -translate-x-1/2 transform border-t border-gray-300" />
 			<div className="min-w-48">
 				<Text className="text-xl font-bold">Company Name</Text>
 				<Text className="mt-2 text-gray-600">2021 © Lando</Text>
