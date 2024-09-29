@@ -20,7 +20,7 @@ const Home = () => {
 	const t = useTranslations("homepage");
 	return (
 		<MainLayout>
-			<div className="content-holder my-6 flex flex-row justify-between">
+			<div className="content-holder my-12 flex flex-row justify-between md:my-24">
 				<div className="max-w-1/2 flex flex-col gap-8">
 					<Text
 						className="font-bold uppercase"
