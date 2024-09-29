@@ -7,7 +7,7 @@ type ContainerProps = {
 const Container = (props: ContainerProps) => {
 	const { children } = props;
 	return (
-		<div className="mx-auto grid h-screen w-screen max-w-screen-xl grid-rows-[auto_1fr_auto] px-4 sm:px-6 lg:px-8">
+		<div className="flex min-h-[100vh] flex-col items-center justify-between">
 			{children}
 		</div>
 	);

@@ -28,7 +28,6 @@ const LanguageSwitcher = () => {
 			<DropdownMenu.Trigger asChild>
 				<Button variant="outline">Language: {currentLanguage === "en" ? "English" : "Deutsch"}</Button>
 			</DropdownMenu.Trigger>
-
 			<DropdownMenu.Portal>
 				<DropdownMenu.Content
 					className="animate-slideDownAndFade min-w-[160px] rounded-md bg-white p-2 shadow-md"

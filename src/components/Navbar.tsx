@@ -26,7 +26,7 @@ const Navbar = () => {
 	);
 
 	return (
-		<div className="flex items-center justify-between py-3 sm:py-12">
+		<div className="content-holder flex w-full items-center justify-between py-3 sm:py-12">
 			<div className="mr-28 text-3xl font-bold">Logo</div>
 			<div className="hidden gap-10 font-bold lg:flex">
 				<Link href="/home">Home</Link>

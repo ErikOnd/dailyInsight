@@ -11,7 +11,9 @@ const MainLayout = ({ children }: LayoutProps) => {
 	return (
 		<Container>
 			<Navbar />
-			<main className=" pt-16 sm:py-28">{children}</main>
+			<main>
+				{children}
+			</main>
 			<Footer />
 		</Container>
 	);
