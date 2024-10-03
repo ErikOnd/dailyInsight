@@ -1,9 +1,11 @@
+"use client";
+
 import React, { useState, useEffect } from "react";
 import * as DropdownMenu from "@radix-ui/react-dropdown-menu";
 import { Button } from "@/components/ui/button";
 
 const LanguageSwitcher = () => {
-	const [currentLanguage, setCurrentLanguage] = useState<"en" | "de">("en");
+	const [currentLanguage, setCurrentLanguage] = useState<"en" | "de" | undefined>(undefined);
 
 	useEffect(() => {
 		const locale = document.cookie

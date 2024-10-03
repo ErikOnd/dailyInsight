@@ -65,5 +65,6 @@ const Navbar = () => {
 
 //todo: humburger komponente auslagern
 //todo: navbar vollenden
+//todo: save login/logout state in local storage to get rid of the flickering
 
 export default Navbar;
