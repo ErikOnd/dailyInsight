@@ -1,5 +1,5 @@
 "use client";
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import Link from "next/link";
 import { Button } from "@/components/ui/button";
 import { useUser } from "@auth0/nextjs-auth0/client";
@@ -7,8 +7,24 @@ import LanguageSwitcher from "@/components/ui/LanguageSwitcher";
 import { clsx } from "clsx";
 
 const Navbar = () => {
-	const { user } = useUser();
 	const [isClicked, setIsClicked] = useState(false);
+	const { user, isLoading } = useUser();
+	const [isLoggedIn, setIsLoggedIn] = useState(() => {
+		return localStorage.getItem("isLoggedIn") === "true";
+	});
+
+	useEffect(() => {
+		if (isLoading) return;
+
+		if (user) {
+			setIsLoggedIn(true);
+			localStorage.setItem("isLoggedIn", "true");
+		} else {
+			setIsLoggedIn(false);
+			localStorage.setItem("isLoggedIn", "false");
+		}
+	}, [user, isLoading]);
+
 
 	const firstSpanClasses = clsx(
 		"h-1 w-6 transform rounded-full bg-black transition duration-300",
@@ -36,7 +52,7 @@ const Navbar = () => {
 			</div>
 			<div className="ml-auto hidden gap-5 lg:flex">
 				<LanguageSwitcher />
-				{user ? (
+				{isLoggedIn ? (
 					<Link href="/api/auth/logout">
 						<Button variant="ghost">Logout</Button>
 					</Link>
@@ -65,6 +81,5 @@ const Navbar = () => {
 
 //todo: humburger komponente auslagern
 //todo: navbar vollenden
-//todo: save login/logout state in local storage to get rid of the flickering
 
 export default Navbar;

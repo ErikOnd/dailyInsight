@@ -2,6 +2,7 @@
 import Container from "@/components/ui/container";
 import { Button } from "@/components/ui/button";
 import { useUser } from "@auth0/nextjs-auth0/client";
+import Navbar from "@/components/Navbar";
 
 export default function Home() {
 	const { user } = useUser();
@@ -26,6 +27,7 @@ export default function Home() {
 
 	return (
 		<Container>
+			<Navbar/>
 			<Button onClick={handleClick}>Send User Data To Be</Button>
 		</Container>
 	);
