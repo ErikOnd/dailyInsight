@@ -4,10 +4,11 @@ import Link from "next/link";
 import { Button } from "@/components/ui/button";
 import { useUser } from "@auth0/nextjs-auth0/client";
 import LanguageSwitcher from "@/components/ui/LanguageSwitcher";
-import { clsx } from "clsx";
+import { MobileNavButton } from "@/components/ui/MobileNavButton";
+import { motion } from "framer-motion";
 
 const Navbar = () => {
-	const [isClicked, setIsClicked] = useState(false);
+	const [showMobileNavigation, setShowMobileNavigation] = useState(false);
 	const { user, isLoading } = useUser();
 	const [isLoggedIn, setIsLoggedIn] = useState(() => {
 		return localStorage.getItem("isLoggedIn") === "true";
@@ -25,56 +26,47 @@ const Navbar = () => {
 		}
 	}, [user, isLoading]);
 
-
-	const firstSpanClasses = clsx(
-		"h-1 w-6 transform rounded-full bg-black transition duration-300",
-		{ "translate-y-2.5 rotate-45": isClicked }
-	);
-
-	const secondSpanClasses = clsx(
-		"h-1 w-6 rounded-full bg-black transition duration-300",
-		{ "scale-x-0": isClicked }
-	);
-
-	const thirdSpanClasses = clsx(
-		"h-1 w-6 transform rounded-full bg-black transition duration-300",
-		{ "-translate-y-2.5 -rotate-45": isClicked }
-	);
+	const mobileNavVariants = {
+		hidden: { height: 0, opacity: 0, y: 0, overflow: "hidden" },
+		visible: { height: "auto", opacity: 1, y: 120, overflow: "hidden" },
+	};
 
 	return (
-		<div className="content-holder flex w-full items-center justify-between py-3 sm:py-12">
-			<div className="mr-28 text-3xl font-bold">Logo</div>
-			<div className="hidden gap-10 font-bold lg:flex">
-				<Link href="/home">Home</Link>
-				<Link href="/pricing">Pricing</Link>
-				<Link href="/aboutUs">About us</Link>
-				<Link href="/contact">Contact</Link>
+		<div className="relative flex w-full flex-col">
+			<div className="content-holder flex w-full items-center justify-between py-3 sm:py-12">
+				<div className="mr-28 text-3xl font-bold">Logo</div>
+				<div className="hidden gap-10 font-bold lg:flex">
+					<Link href="/home">Home</Link>
+					<Link href="/pricing">Pricing</Link>
+					<Link href="/aboutUs">About us</Link>
+					<Link href="/contact">Contact</Link>
+				</div>
+				<div className="ml-auto hidden gap-5 lg:flex">
+					<LanguageSwitcher />
+					{isLoggedIn ? (
+						<Link href="/api/auth/logout">
+							<Button variant="ghost">Logout</Button>
+						</Link>
+					) : (
+						<Link href="/api/auth/login">
+							<Button variant="default">Login</Button>
+						</Link>
+					)}
+				</div>
+				<MobileNavButton isClicked={showMobileNavigation} setIsClicked={setShowMobileNavigation} />
 			</div>
-			<div className="ml-auto hidden gap-5 lg:flex">
-				<LanguageSwitcher />
-				{isLoggedIn ? (
-					<Link href="/api/auth/logout">
-						<Button variant="ghost">Logout</Button>
-					</Link>
-				) : (
-					<Link href="/api/auth/login">
-						<Button variant="default">Login</Button>
-					</Link>
-				)}
-			</div>
-			<div className="block gap-5 lg:hidden">
-				<Button
-					variant="ghost"
-					onClick={() => setIsClicked(!isClicked)}
-					className="border border-black"
-				>
-					<div className="grid justify-items-center gap-1.5">
-						<span className={firstSpanClasses} />
-						<span className={secondSpanClasses} />
-						<span className={thirdSpanClasses} />
-					</div>
-				</Button>
-			</div>
+			<motion.div
+				className="content-holder absolute bottom-0 flex w-full flex-col gap-2 bg-red-600"
+				variants={mobileNavVariants}
+				initial="hidden"
+				animate={showMobileNavigation ? "visible" : "hidden"}
+				transition={{ duration: 0.3 }}
+			>
+				<Link href="/home" onClick={() => setShowMobileNavigation(false)}>Home</Link>
+				<Link href="/pricing" onClick={() => setShowMobileNavigation(false)}>Pricing</Link>
+				<Link href="/aboutUs" onClick={() => setShowMobileNavigation(false)}>About us</Link>
+				<Link href="/contact" onClick={() => setShowMobileNavigation(false)}>Contact</Link>
+			</motion.div>
 		</div>
 	);
 };
