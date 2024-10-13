@@ -6,45 +6,42 @@ import { useUser } from "@auth0/nextjs-auth0/client";
 import LanguageSwitcher from "@/components/ui/LanguageSwitcher";
 import { MobileNavButton } from "@/components/ui/MobileNavButton";
 import { motion } from "framer-motion";
+import useWindowDimensions from "@/lib/useWindowDimensions";
 
-const Navbar = () => 
-{
+const Navbar = () => {
 	const [showMobileNavigation, setShowMobileNavigation] = useState(false);
 	const { user, isLoading } = useUser();
-	const [isLoggedIn, setIsLoggedIn] = useState(() => 
-	{
+	const [isLoggedIn, setIsLoggedIn] = useState(() => {
 		return localStorage.getItem("isLoggedIn") === "true";
 	});
+	const { width } = useWindowDimensions();
 
-	useEffect(() => 
-	{
+
+	useEffect(() => {
+		width > 1024 && setShowMobileNavigation(false);
+	}, [width]);
+
+
+	useEffect(() => {
 		if (isLoading) return;
 
-		if (user) 
-		{
+		if (user) {
 			setIsLoggedIn(true);
 			localStorage.setItem("isLoggedIn", "true");
-		}
-		else 
-		{
+		} else {
 			setIsLoggedIn(false);
 			localStorage.setItem("isLoggedIn", "false");
 		}
 	}, [user, isLoading]);
 
-	useEffect(() => 
-	{
-		if (showMobileNavigation) 
-		{
+	useEffect(() => {
+		if (showMobileNavigation) {
 			document.body.style.overflow = "hidden";
-		}
-		else 
-		{
+		} else {
 			document.body.style.overflow = "auto";
 		}
 
-		return () => 
-		{
+		return () => {
 			document.body.style.overflow = "auto";
 		};
 	}, [showMobileNavigation]);
@@ -96,8 +93,5 @@ const Navbar = () =>
 		</div>
 	);
 };
-
-//todo: humburger komponente auslagern
-//todo: navbar vollenden
 
 export default Navbar;

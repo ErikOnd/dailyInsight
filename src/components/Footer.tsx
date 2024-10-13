@@ -19,28 +19,28 @@ const Footer = () =>
 						<li>
 							<Link
 								href="/"
-								className="link text-gray-700">
+								className="text-gray-700">
 								Home
 							</Link>
 						</li>
 						<li>
 							<Link
 								href="/pricing"
-								className="link text-gray-700">
+								className="text-gray-700">
 								Pricing
 							</Link>
 						</li>
 						<li>
 							<Link
 								href="/about"
-								className="link text-gray-700">
+								className="text-gray-700">
 								About us
 							</Link>
 						</li>
 						<li>
 							<Link
 								href="/contact"
-								className="link text-gray-700">
+								className="text-gray-700">
 								Contact
 							</Link>
 						</li>
@@ -52,28 +52,28 @@ const Footer = () =>
 						<li>
 							<Link
 								href="https://facebook.com"
-								className="link text-gray-700">
+								className="text-gray-700">
 								Facebook
 							</Link>
 						</li>
 						<li>
 							<Link
 								href="https://instagram.com"
-								className="link text-gray-700">
+								className="text-gray-700">
 								Instagram
 							</Link>
 						</li>
 						<li>
 							<Link
 								href="https://twitter.com"
-								className="link text-gray-700">
+								className="text-gray-700">
 								Twitter
 							</Link>
 						</li>
 						<li>
 							<Link
 								href="https://linkedin.com"
-								className="link text-gray-700">
+								className="text-gray-700">
 								LinkedIn
 							</Link>
 						</li>
@@ -85,14 +85,14 @@ const Footer = () =>
 						<li>
 							<Link
 								href="/privacy-policy"
-								className="link text-gray-700">
+								className="text-gray-700">
 								Privacy Policy
 							</Link>
 						</li>
 						<li>
 							<Link
 								href="/terms-of-service"
-								className="link text-gray-700">
+								className="text-gray-700">
 								Terms Of Service
 							</Link>
 						</li>
