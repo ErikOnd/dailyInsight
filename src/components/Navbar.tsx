@@ -1,38 +1,20 @@
 "use client";
 import React, { useEffect, useState } from "react";
 import Link from "next/link";
-import { Button } from "@/components/ui/button";
-import { useUser } from "@auth0/nextjs-auth0/client";
 import LanguageSwitcher from "@/components/ui/LanguageSwitcher";
 import { MobileNavButton } from "@/components/ui/MobileNavButton";
 import { motion } from "framer-motion";
 import useWindowDimensions from "@/lib/useWindowDimensions";
+import SettingsDropdown from "@/components/ui/settings";
 
 const Navbar = () => {
 	const [showMobileNavigation, setShowMobileNavigation] = useState(false);
-	const { user, isLoading } = useUser();
-	const [isLoggedIn, setIsLoggedIn] = useState(() => {
-		return localStorage.getItem("isLoggedIn") === "true";
-	});
 	const { width } = useWindowDimensions();
 
 
 	useEffect(() => {
 		width > 1024 && setShowMobileNavigation(false);
 	}, [width]);
-
-
-	useEffect(() => {
-		if (isLoading) return;
-
-		if (user) {
-			setIsLoggedIn(true);
-			localStorage.setItem("isLoggedIn", "true");
-		} else {
-			setIsLoggedIn(false);
-			localStorage.setItem("isLoggedIn", "false");
-		}
-	}, [user, isLoading]);
 
 	useEffect(() => {
 		if (showMobileNavigation) {
@@ -63,15 +45,7 @@ const Navbar = () => {
 				</div>
 				<div className="ml-auto hidden gap-5 lg:flex">
 					<LanguageSwitcher />
-					{isLoggedIn ? (
-						<Link href="/api/auth/logout">
-							<Button variant="ghost">Logout</Button>
-						</Link>
-					) : (
-						<Link href="/api/auth/login">
-							<Button variant="default">Login</Button>
-						</Link>
-					)}
+					<SettingsDropdown />
 				</div>
 				<MobileNavButton isClicked={showMobileNavigation} setIsClicked={setShowMobileNavigation} />
 			</div>
@@ -95,3 +69,5 @@ const Navbar = () => {
 };
 
 export default Navbar;
+
+

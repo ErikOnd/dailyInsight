@@ -102,3 +102,19 @@
 		@apply max-w-screen-2xl px-6 sm:px-8 lg:px-12;
 	}
 }
+
+@font-face {
+	font-family: 'Inter';
+	src: url('../assets/fonts/Inter.ttf') format('truetype');
+	font-weight: 100 900;
+	font-style: normal;
+	font-display: swap;
+}
+
+@font-face {
+	font-family: 'Roboto';
+	src: url('../assets/fonts/Roboto.ttf') format('truetype');
+	font-weight: 100 900;
+	font-style: normal;
+	font-display: swap;
+}

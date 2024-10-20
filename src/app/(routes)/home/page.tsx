@@ -1,5 +1,5 @@
 "use client";
-import React from "react";
+
 import Headline from "@/components/ui/headline";
 import Lottie from "react-lottie";
 import heroAnimation from "@/assets/hero_animation.json";
@@ -18,10 +18,11 @@ const Home = () => {
 		},
 	};
 	const t = useTranslations("homepage");
+
 	return (
 		<MainLayout>
 			<div className="content-holder my-12 flex flex-row justify-between md:my-24">
-				<div className="max-w-1/2 flex flex-col gap-8">
+				<div className="flex w-3/5 flex-col gap-8">
 					<Text
 						className="font-bold uppercase"
 						variant="secondary"
@@ -35,7 +36,7 @@ const Home = () => {
 						<Button variant="outline"> {t("seeHowItWorks")}</Button>
 					</div>
 				</div>
-				<div className="mt-16 h-full w-full max-w-fit animate-random-shift self-start sm:mt-0 ">
+				<div className="mt-16 h-full w-2/5  max-w-fit animate-random-shift self-start sm:mt-0">
 					<Lottie options={defaultOptions}
 					/>
 				</div>

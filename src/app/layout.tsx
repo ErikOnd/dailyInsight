@@ -21,7 +21,7 @@ export default async function RootLayout({ children }: { children: React.ReactNo
 				<title>DailyInsight</title>
 			</head>
 			<UserProvider>
-				<body className={cn("min-h-screen bg-background font-sans antialiased", fontSans.variable)}>
+				<body className={cn("min-h-screen bg-background font-sans", fontSans.variable)}>
 					<NextIntlClientProvider messages={messages}>{children}</NextIntlClientProvider>
 				</body>
 			</UserProvider>

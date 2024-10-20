@@ -9,7 +9,7 @@ type HeadlineProps = {
 const Headline = (props: HeadlineProps) => {
 	const { as: Tag = "h2", className = "", children } = props;
 
-	return <Tag className={`font-poppins font-black ${className}`}>{children}</Tag>;
+	return <Tag className={`font-roboto font-black ${className}`}>{children}</Tag>;
 };
 
 export default Headline;

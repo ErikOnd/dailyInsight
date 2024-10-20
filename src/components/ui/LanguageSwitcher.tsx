@@ -1,22 +1,10 @@
 "use client";
 
-import React, { useState, useEffect } from "react";
+import React from "react";
 import * as DropdownMenu from "@radix-ui/react-dropdown-menu";
 import { Button } from "@/components/ui/button";
 
 const LanguageSwitcher = () => {
-	const [currentLanguage, setCurrentLanguage] = useState<"en" | "de" | undefined>(undefined);
-
-	useEffect(() => {
-		const locale = document.cookie
-			.split("; ")
-			.find((row) => row.startsWith("NEXT_LOCALE="))
-			?.split("=")[1];
-
-		if (locale === "de" || locale === "en") {
-			setCurrentLanguage(locale as "en" | "de");
-		}
-	}, []);
 
 	const changeLanguage = (locale: "en" | "de") => {
 		document.cookie = `NEXT_LOCALE=${locale}; path=/; max-age=${365 * 24 * 60 * 60}`;
@@ -28,7 +16,7 @@ const LanguageSwitcher = () => {
 	return (
 		<DropdownMenu.Root>
 			<DropdownMenu.Trigger asChild>
-				<Button variant="outline">Language: {currentLanguage === "en" ? "English" : "Deutsch"}</Button>
+				<Button variant="outline">Language</Button>
 			</DropdownMenu.Trigger>
 			<DropdownMenu.Portal>
 				<DropdownMenu.Content
