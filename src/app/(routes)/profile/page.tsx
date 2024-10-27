@@ -1,12 +1,11 @@
 import React from "react";
 import Container from "@/components/ui/container";
-import Headline from "@/components/ui/headline";
+import InsightForm from "@/components/InsightForm";
 
 const Profile = () => {
 	return (
 		<Container>
-			<Headline as="h1">The best way to showcase your project.</Headline>
-            This is the profile page
+			<InsightForm />
 		</Container>
 	);
 };
