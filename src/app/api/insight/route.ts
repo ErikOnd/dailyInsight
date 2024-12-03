@@ -1,18 +1,18 @@
-import { getAccessToken } from "@auth0/nextjs-auth0";
 import { NextRequest, NextResponse } from "next/server";
+import { getAccessToken } from "@auth0/nextjs-auth0";
 
 export async function POST(request: NextRequest) {
 	try {
 		const { accessToken } = await getAccessToken();
-		const email = await request.json();
+		const insight = await request.json();
 
-		const response = await fetch("/api/route-name", {
+		const response = await fetch("endpoint to create insight in be", {
 			method: "POST",
 			headers: {
 				"Content-Type": "application/json",
 				Authorization: `Bearer ${accessToken}`,
 			},
-			body: JSON.stringify(email),
+			body: JSON.stringify(insight),
 		});
 
 		if (!response.ok) {
@@ -20,7 +20,8 @@ export async function POST(request: NextRequest) {
 		}
 
 		const data = await response.json();
-		return NextResponse.json(data, {status: 200 });
+
+		return NextResponse.json(data, { status: 200 });
 	} catch (error) {
 		console.error("Error:", error);
 		return NextResponse.json(
@@ -29,3 +30,6 @@ export async function POST(request: NextRequest) {
 		);
 	}
 }
+
+
+// todo: create template for fetching (DRY Principle)
