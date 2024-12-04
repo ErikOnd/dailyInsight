@@ -5,6 +5,8 @@ export async function POST(request: NextRequest) {
 	try {
 		const { accessToken } = await getAccessToken();
 		const insight = await request.json();
+		console.log("My insight", insight);
+
 
 		const response = await fetch("endpoint to create insight in be", {
 			method: "POST",

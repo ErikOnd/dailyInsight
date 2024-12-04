@@ -12,7 +12,6 @@ const InsightForm = () => {
 		event.preventDefault();
 		const formData = new FormData(event.currentTarget);
 		const data = Object.fromEntries(formData.entries());
-		console.log("Submitted data:", data);
 		try {
 			const res = await fetch("/api/insight", {
 				method: "POST",
