@@ -31,7 +31,7 @@ const InsightForm = () => {
 
 	return (
 		<Form.Root className="max-w-4xl" onSubmit={handleSubmit}>
-			<Form.Field className="mb-2.5" name="insight">
+			<Form.Field className="mb-2.5" name="note">
 				<div className="flex items-baseline justify-between">
 					<Form.Message
 						match="valueMissing"
@@ -63,7 +63,6 @@ const InsightForm = () => {
 				<div className="relative">
 					<select
 						name="source"
-						id="source"
 						className="w-full resize-none appearance-none rounded border border-black bg-white p-2.5 outline-none focus:border-black focus:ring-1 focus:ring-black"
 					>
 						<option value="" disabled>Select one of your Sources</option>
@@ -78,8 +77,7 @@ const InsightForm = () => {
 			<Form.Field className="mb-2.5" name="tag">
 				<div className="relative">
 					<select
-						name="tag"
-						id="tag"
+						name="filter_tags"
 						className="w-full resize-none appearance-none rounded border border-black bg-white p-2.5 outline-none focus:border-black focus:ring-1 focus:ring-black"
 					>
 						<option value="" disabled>Select one of your Tags</option>

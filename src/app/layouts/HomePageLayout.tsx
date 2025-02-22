@@ -1,20 +1,22 @@
 import React, { ReactNode } from "react";
+import Footer from "@/components/Footer";
+import Navbar from "@/components/Navbar";
 import Container from "@/components/ui/container";
-import Sidebar from "@/components/Sidebar";
 
 type LayoutProps = {
 	children: ReactNode;
 };
 
-const MainLayout = ({ children }: LayoutProps) => {
+const HomePageLayout = ({ children }: LayoutProps) => {
 	return (
 		<Container>
-			<Sidebar />
+			<Navbar />
 			<main>
 				{children}
 			</main>
+			<Footer />
 		</Container>
 	);
 };
 
-export default MainLayout;
+export default HomePageLayout;

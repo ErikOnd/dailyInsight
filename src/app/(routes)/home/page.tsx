@@ -1,26 +1,18 @@
 "use client";
 
 import Headline from "@/components/ui/headline";
-import Lottie from "react-lottie";
+import Lottie from "lottie-react";
 import heroAnimation from "@/assets/hero_animation.json";
 import Text from "@/components/ui/text";
 import { Button } from "@/components/ui/button";
-import MainLayout from "@/app/layouts/MainLayout";
+import HomePageLayout from "@/app/layouts/HomePageLayout";
 import { useTranslations } from "next-intl";
 
 const Home = () => {
-	const defaultOptions = {
-		loop: false,
-		autoplay: true,
-		animationData: heroAnimation,
-		rendererSettings: {
-			preserveAspectRatio: "xMidYMid slice",
-		},
-	};
 	const t = useTranslations("homepage");
 
 	return (
-		<MainLayout>
+		<HomePageLayout>
 			<div className="content-holder my-12 flex flex-row justify-between md:my-24">
 				<div className="flex w-3/5 flex-col gap-8">
 					<Text
@@ -37,11 +29,15 @@ const Home = () => {
 					</div>
 				</div>
 				<div className="mt-16 h-full w-2/5  max-w-fit animate-random-shift self-start sm:mt-0">
-					<Lottie options={defaultOptions}
+					<Lottie
+						animationData={heroAnimation}
+						loop={false}
+						autoplay={true}
+						style={{ width: '100%', height: '100%' }}
 					/>
 				</div>
 			</div>
-		</MainLayout>
+		</HomePageLayout>
 	);
 };
 

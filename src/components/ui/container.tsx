@@ -14,3 +14,7 @@ const Container = (props: ContainerProps) => {
 };
 
 export default Container;
+
+
+//todo: create a homepage container and a main container or just use the classnames in the layout directly
+

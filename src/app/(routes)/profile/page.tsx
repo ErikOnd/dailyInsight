@@ -1,12 +1,12 @@
 import React from "react";
-import Container from "@/components/ui/container";
 import InsightForm from "@/components/InsightForm";
+import MainLayout from "@/app/layouts/MainLayout";
 
 const Profile = () => {
 	return (
-		<Container>
+		<MainLayout>
 			<InsightForm />
-		</Container>
+		</MainLayout>
 	);
 };
 
